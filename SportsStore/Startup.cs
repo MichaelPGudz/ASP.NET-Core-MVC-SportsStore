@@ -51,7 +51,12 @@ namespace SportsStore
                 //endpoints.MapControllers();
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Product}/{action=List}/{id?}");
+                    pattern: "Products/Page{productPage}",
+                    defaults: new { Controller = "Product", action = "List" });
+
+                endpoints.MapControllerRoute(
+                     name: "pagination",
+                     pattern: "{controller=Product}/{action=List}/{id?}");
                 //endpoints.MapGet("/", async context =>
                 //{
                 //    await context.Response.WriteAsync("Hello World!");
