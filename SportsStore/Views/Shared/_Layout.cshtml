@@ -2,22 +2,28 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" asp-href-include="~/lib/twitter-bootstrap/**/*.min.css"
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" asp-href-include="~/lib/twitter-bootstrap/**/*.min.css"
         asp-href-exclude="**/*-reboot*, **/*-grid*" />
-    <title>SportsStore</title>
+	<link rel="stylesheet" asp-href-include="/lib/font-awesome/css/*.css" />
+	<title>SportsStore</title>
 </head>
 <body>
-    <div class="navbar navbar-inverse bg-inverse" role="navigation">
-        <a class="navbar-brand" href="#">Sports Store</a>
-    </div>
-    <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
-            @await Component.InvokeAsync("NavigationMenu") 
-        </div>
-        <div class="col-9">
-            @RenderBody()
-        </div>
-    </div>
+	<div class="navbar navbar-inverse bg-inverse" role="navigation">
+		<div class="row">
+			<a class="navbar-brand" href="#">Sports Store</a>
+			<div class="col-4 text-right">
+				@await Component.InvokeAsync("CartSummary")
+			</div>
+		</div>
+	</div>
+	<div class="row m-1 p-1">
+		<div id="categories" class="col-3">
+			@await Component.InvokeAsync("NavigationMenu") 
+		</div>
+		<div class="col-9">
+			@RenderBody()
+		</div>
+	</div>
 </body>
 </html>
